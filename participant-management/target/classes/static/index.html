@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iron Lady Leadership Academy</title>
+
+<!-- Premium Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg-main: #0b0f1a;
+    --bg-card: #121826;
+    --bg-soft: #1a2133;
+
+    --primary: #ec4899;      /* neon rose */
+    --secondary: #8b5cf6;    /* royal violet */
+    --accent: #22d3ee;       /* cyan glow */
+
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger:  #ef4444;
+    --info:    #38bdf8;
+
+    --text-main: #e5e7eb;
+    --text-muted: #9ca3af;
+
+    --border: rgba(255,255,255,0.08);
+    --shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at top, #1e1b4b, #020617 70%);
+    color: var(--text-main);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 2rem 1rem;
+}
+
+/* ===== HEADER ===== */
+header {
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    padding: 2.6rem 1rem;
+    text-align: center;
+    border-radius: 0 0 28px 28px;
+    box-shadow: var(--shadow);
+}
+
+header h1 {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: white;
+}
+
+header p {
+    margin-top: 0.6rem;
+    color: #fce7f3;
+    opacity: 0.9;
+}
+
+/* ===== CARDS ===== */
+.card {
+    background: var(--bg-card);
+    border-radius: 18px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.card h2 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--accent);
+    margin-top: 0;
+}
+
+/* ===== FORM ===== */
+.form-group {
+    margin-bottom: 1.3rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.required::after {
+    content: " *";
+    color: var(--danger);
+}
+
+input, select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    font-size: 0.95rem;
+}
+
+input::placeholder {
+    color: #6b7280;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(236,72,153,0.25);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    padding: 0.7rem 1.6rem;
+    border-radius: 999px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(236,72,153,0.5);
+}
+
+.btn-secondary {
+    background: #374151;
+    color: white;
+}
+
+.btn-info {
+    background: #06b6d4;
+    color: #020617;
+}
+
+.btn-danger {
+    background: #ef4444;
+    color: white;
+}
+
+/* ===== CONTROLS ===== */
+.controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.search-box {
+    flex: 1;
+}
+
+/* ===== TABLE ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+thead {
+    background: linear-gradient(135deg, #312e81, #1e293b);
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+th {
+    color: #e0e7ff;
+}
+
+tbody tr {
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid var(--border);
+}
+
+tbody tr:hover {
+    background: rgba(236,72,153,0.08);
+}
+
+/* ===== STATUS ===== */
+.status-enrolled { color: var(--accent); font-weight: bold; }
+.status-in-progress { color: var(--warning); font-weight: bold; }
+.status-completed { color: var(--success); font-weight: bold; }
+.status-dropped { color: var(--danger); font-weight: bold; }
+
+.actions {
+    display: flex;
+    gap: 0.4rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .controls { flex-direction: column; }
+    .btn { width: 100%; }
+}
+</style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Iron Lady Leadership Academy</h1>
+            <p>Building powerful women leaders – Track enrollment & progress in real time</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Form Card -->
+        <div class="card">
+            <h2>Enroll or Update Participant</h2>
+            <input type="hidden" id="id" value="">
+
+            <div class="form-group">
+                <label for="fullName" class="required">Full Name</label>
+                <input id="fullName" placeholder="e.g. Ananya Rao" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input id="email" type="email" placeholder="ananya.rao@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Mobile Number</label>
+                <input id="phone" placeholder="+91 98 765 43210">
+            </div>
+
+            <div class="form-group">
+                <label for="programName" class="required">Program Name</label>
+                <select id="programName" required>
+                    <option value="">-- Select Program --</option>
+                    <option value="Leadership Essentials">Leadership Essentials</option>
+                    <option value="1-Crore Club">1-Crore Club</option>
+                    <option value="100 Board Members Program">100 Board Members Program</option>
+                    <option value="Master of Business Warfare">Master of Business Warfare</option>
+                    <option value="Other Masterclass">Other Masterclass</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="status">Current Status</label>
+                <select id="status">
+                    <option value="ENROLLED">Enrolled</option>
+                    <option value="IN_PROGRESS">In Progress</option>
+                    <option value="COMPLETED">Completed</option>
+                    <option value="DROPPED">Dropped</option>
+                </select>
+            </div>
+
+            <div>
+                <button class="btn btn-primary" onclick="saveParticipant()">Save Participant</button>
+                <button class="btn btn-secondary" onclick="clearForm()">Clear Form</button>
+            </div>
+        </div>
+
+        <!-- Table Controls & Card -->
+        <div class="card">
+            <h2>Active Participants</h2>
+
+            <div class="controls">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search by name, email, phone or program..." oninput="searchTable()">
+                </div>
+            </div>
+
+            <table id="participantsTable">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable('id')" data-sort="id">ID</th>
+                        <th onclick="sortTable('fullName')" data-sort="fullName">Full Name</th>
+                        <th onclick="sortTable('email')" data-sort="email">Email</th>
+                        <th onclick="sortTable('phone')" data-sort="phone">Phone</th>
+                        <th onclick="sortTable('programName')" data-sort="programName">Program</th>
+                        <th onclick="sortTable('status')" data-sort="status">Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <tr><td colspan="7" class="loading">Loading participants...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Your original JavaScript remains completely unchanged -->
+    <script>
+        const API_BASE = '/api/participants';
+        let participants = [];
+        let sortColumn = 'id';
+        let sortDirection = 'asc';
+
+        async function loadParticipants() {
+            try {
+                const response = await fetch(API_BASE);
+                if (!response.ok) throw new Error('Failed to load');
+                participants = await response.json();
+                renderTable(participants);
+            } catch (err) {
+                document.getElementById('tbody').innerHTML = `<tr><td colspan="7" style="color: var(--danger);">Error loading participants: ${err.message}</td></tr>`;
+            }
+        }
+
+        function renderTable(data) {
+            const tbody = document.getElementById('tbody');
+            tbody.innerHTML = '';
+
+            if (data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="loading">No participants found</td></tr>';
+                return;
+            }
+
+            data.forEach(item => {
+                const statusClass = `status-${item.status?.toLowerCase().replace(/_/g, '-') || 'unknown'}`;
+                const row = `
+                    <tr>
+                        <td>${item.id || '-'}</td>
+                        <td>${item.fullName || '-'}</td>
+                        <td>${item.email || '-'}</td>
+                        <td>${item.phone || '-'}</td>
+                        <td>${item.programName || '-'}</td>
+                        <td class="${statusClass}">${item.status || 'Unknown'}</td>
+                        <td class="actions">
+                            <button class="btn btn-info" onclick="editParticipant(${item.id}, 
+                                '${(item.fullName || '').replace(/'/g, "\\'")}', 
+                                '${(item.email || '').replace(/'/g, "\\'")}', 
+                                '${(item.phone || '').replace(/'/g, "\\'")}', 
+                                '${(item.programName || '').replace(/'/g, "\\'")}', 
+                                '${item.status}')">Edit</button>
+                            <button class="btn btn-danger" onclick="deleteParticipant(${item.id})">Delete</button>
+                        </td>
+                    </tr>`;
+                tbody.innerHTML += row;
+            });
+        }
+
+        function searchTable() {
+            const term = document.getElementById('searchInput').value.toLowerCase().trim();
+            const filtered = participants.filter(p =>
+                (p.fullName || '').toLowerCase().includes(term) ||
+                (p.email || '').toLowerCase().includes(term) ||
+                (p.phone || '').toLowerCase().includes(term) ||
+                (p.programName || '').toLowerCase().includes(term) ||
+                (p.status || '').toLowerCase().includes(term)
+            );
+            renderTable(filtered);
+        }
+
+        function sortTable(column) {
+            if (sortColumn === column) {
+                sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+            } else {
+                sortColumn = column;
+                sortDirection = 'asc';
+            }
+
+            document.querySelectorAll('th').forEach(th => {
+                th.classList.remove('sort-asc', 'sort-desc');
+            });
+
+            const th = document.querySelector(`th[data-sort="${column}"]`);
+            if (th) {
+                th.classList.add(sortDirection === 'asc' ? 'sort-asc' : 'sort-desc');
+            }
+
+            const sorted = [...participants].sort((a, b) => {
+                let valA = (a[column] || '').toString().toLowerCase();
+                let valB = (b[column] || '').toString().toLowerCase();
+
+                if (column === 'id') {
+                    valA = parseInt(a.id) || 0;
+                    valB = parseInt(b.id) || 0;
+                }
+
+                if (valA < valB) return sortDirection === 'asc' ? -1 : 1;
+                if (valA > valB) return sortDirection === 'asc' ? 1 : -1;
+                return 0;
+            });
+
+            renderTable(sorted);
+        }
+
+        async function saveParticipant() {
+            const id = document.getElementById('id').value;
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const programName = document.getElementById('programName').value;
+            const status = document.getElementById('status').value;
+
+            if (!fullName || !programName) {
+                alert('Full Name and Program are required!');
+                return;
+            }
+
+            const payload = { fullName, email, phone, programName, status };
+
+            try {
+                const method = id ? 'PUT' : 'POST';
+                const url = id ? `${API_BASE}/${id}` : API_BASE;
+
+                const response = await fetch(url, {
+                    method,
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const err = await response.text();
+                    throw new Error(err || 'Save failed');
+                }
+
+                alert(id ? 'Participant updated successfully!' : 'Participant enrolled successfully!');
+                clearForm();
+                loadParticipants();
+            } catch (err) {
+                alert('Error saving: ' + err.message);
+            }
+        }
+
+        function editParticipant(id, fullName, email, phone, programName, status) {
+            document.getElementById('id').value = id;
+            document.getElementById('fullName').value = fullName;
+            document.getElementById('email').value = email;
+            document.getElementById('phone').value = phone;
+            document.getElementById('programName').value = programName;
+            document.getElementById('status').value = status || 'ENROLLED';
+        }
+
+        async function deleteParticipant(id) {
+            if (!confirm('Delete this participant?')) return;
+
+            try {
+                const response = await fetch(`${API_BASE}/${id}`, { method: 'DELETE' });
+                if (!response.ok) throw new Error('Delete failed');
+                alert('Deleted successfully');
+                loadParticipants();
+            } catch (err) {
+                alert('Error deleting: ' + err.message);
+            }
+        }
+
+        function clearForm() {
+            document.getElementById('id').value = '';
+            document.getElementById('fullName').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('programName').value = '';
+            document.getElementById('status').value = 'ENROLLED';
+        }
+
+        window.onload = loadParticipants;
+    </script>
+</body>
+</html>
